@@ -1,0 +1,19 @@
+{
+  "name": "assignment-1-chauhan-p",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2020/assignment-1-chauhan-p.git"
+  },
+  "author": "Pritesh Chauhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2020/assignment-1-chauhan-p/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2020/assignment-1-chauhan-p#readme"
+}
