@@ -1,0 +1,92 @@
+package edu.neu.csye6200;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class RevisitPatientFormModel {
+	
+	String csvFile = ".\\developer.csv";
+	List<String> x = new ArrayList<String>();
+	String org;
+    String dest;
+	
+	private String status = "true";
+	
+	private String[] array = new String[9];
+	private String[] array1 = new String[2];
+	
+	private String patientName;
+	private String patientInsId;
+	private String patientInsTermDate;
+	private String patientDob;
+	private int patientAge;
+	private String patientGender;
+	private String patientWard;
+	
+	public String[] readFileRevisitPatient(String tname, String tmno, String ward) {
+		try (BufferedReader inLine = new BufferedReader(new FileReader(csvFile));) {
+			String inputLine = null;
+			
+			while ((inputLine = inLine.readLine()) != null) {
+				
+				System.out.println(inputLine);
+				String input = inputLine.replace("\"",	"");
+				x.add(input);
+				String[] field = input.split(",");
+				patientName = field[0];
+				patientInsId = field[1];
+				patientInsTermDate = field[2];
+				patientDob = field[3];
+				patientAge = Integer.parseInt(field[4]);
+				patientGender = field[5];
+				patientWard = field[6];
+				
+				System.out.println(x);
+				org = inputLine;
+				
+				if (tname.equals(patientName)) {
+					System.out.println("Org:"+org);
+					status = "true";
+					if (tmno.equals(patientInsId)) {						
+						RevisitPatientFormController rpfc = new RevisitPatientFormController();
+						array1 = rpfc.revisitControl(patientDob, patientInsTermDate, ward);
+						break;
+					} else {
+						status = "false";
+						array1[0] = Integer.toString(patientAge);
+						array1[1] = patientWard;
+						break;
+					}
+				} else {
+					status = "false";
+					array1[0] = Integer.toString(patientAge);
+					array1[1] = patientWard;
+					break;
+				}					
+			} // end of while			
+    		
+		} catch (Exception ex) {
+				ex.printStackTrace();
+		}
+		
+		array[0] = status;
+		array[1] = array1[0];
+		array[2] = array1[1];
+		array[3] = patientName;
+		array[4] = patientInsId;
+		array[5] = patientInsTermDate;
+		array[6] = patientDob;
+		array[7] = patientGender;
+		array[8] = org;
+		
+		String newList = String.join(",", array);
+		
+		System.out.println("For Loop:");
+		for (int i = 0; i<array.length; i++) {
+			System.out.println(array[i]);
+		}
+		return array;		
+	}
+}

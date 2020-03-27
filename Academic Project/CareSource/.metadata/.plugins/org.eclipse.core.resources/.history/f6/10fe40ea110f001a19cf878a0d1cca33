@@ -1,0 +1,515 @@
+package edu.neu.csye6200;
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+  
+/**
+ * UI creation
+ * @author Pritesh Chauhan
+ * 
+ * Field Validation & Code documentation
+ * @author Priyanka Maheshwari
+ */
+class NewPatientFormView extends JFrame implements ActionListener { 
+    private Container c; 
+    private JLabel title; 
+    private JLabel name; 
+    private JTextField tname; 
+    private JLabel ino; 
+    private JTextField tmno; 
+    private JLabel tino; 
+    private JLabel gender; 
+    private JRadioButton male; 
+    private JRadioButton female; 
+    private JLabel ward; 
+    private JRadioButton normal; 
+    private JRadioButton emergency; 
+    private JRadioButton child; 
+    private ButtonGroup gengp; 
+    private JLabel dob; 
+    private JComboBox date; 
+    private JComboBox month; 
+    private JComboBox year; 
+    private JComboBox tdate; 
+    private JComboBox tmonth; 
+    private JComboBox tyear; 
+    private JCheckBox term; 
+    private JButton sub; 
+    private JButton reset; 
+    private JButton check; 
+    private JButton back;
+    private JTextArea tout; 
+    private JLabel res; 
+    private JTextArea resadd; 
+    private String FILE_HEADER = "Name,Insurance Number,DOB,Gender,Ward";
+    String COMMA_DELIMITER = ",";
+    String NEW_LINE_SEPARATOR = "\n";
+	String csvFile = ".\\developer.csv";
+	FileWriter fileWriter;
+	
+	private String patientGender;
+	private String patientWard;
+	
+	private boolean statusName = true;
+	private boolean statusIns = true;
+	
+    private String dates[] 
+        = { "1", "2", "3", "4", "5", 
+            "6", "7", "8", "9", "10", 
+            "11", "12", "13", "14", "15", 
+            "16", "17", "18", "19", "20", 
+            "21", "22", "23", "24", "25", 
+            "26", "27", "28", "29", "30", 
+            "31" }; 
+    private String months[] 
+        = { "01","02","03","04", "05", "06",
+        	"07","08","09","10", "11", "12"}; 
+    private String years[] 
+        = { "1995", "1996", "1997", "1998", 
+            "1999", "2000", "2001", "2002", 
+            "2003", "2004", "2005", "2006", 
+            "2007", "2008", "2009", "2010", 
+            "2011", "2012", "2013", "2014", 
+            "2015", "2016", "2017", "2018", 
+            "2019", "2020", "2021", "2022",
+            "2023", "2024", "2025", "2026",
+            "2027", "2028", "2029", "2030",
+            "2031", "2032", "2033", "2034",}; 
+  
+    // constructor, to initialize the components 
+    // with default values. 
+    public NewPatientFormView() 
+    { 
+    	// Page Title
+        setTitle("Patient Visiting Form"); 
+        setBounds(500, 150, 900, 600); 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        setResizable(false); 
+  
+        c = getContentPane(); 
+        c.setLayout(null); 
+  
+        // Page Title Label
+        title = new JLabel("New Patient Registration Form"); 
+        title.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        title.setSize(475, 40); 
+        title.setLocation(280, 30); 
+        c.add(title); 
+  
+        // Patient Name Label
+        name = new JLabel("Name"); 
+        name.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        name.setSize(100, 20); 
+        name.setLocation(100, 100); 
+        c.add(name); 
+  
+        // Patient Name TextArea
+        tname = new JTextField(15); 
+        tname.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tname.setSize(190, 20); 
+        tname.setLocation(200, 100); 
+        c.add(tname);
+           
+        // Insurance Number Label
+        ino = new JLabel("Insurance Number"); 
+        ino.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        ino.setSize(300, 20); 
+        ino.setLocation(100, 150); 
+        c.add(ino); 
+  
+        // Insurance Number TextArea
+        tmno = new JTextField(); 
+        tmno.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tmno.setSize(190, 20); 
+        tmno.setLocation(200, 175); 
+        c.add(tmno); 
+        
+        // Insurance Termination Date Label
+        tino = new JLabel("Termination Date"); 
+        tino.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        tino.setSize(300, 20); 
+        tino.setLocation(100, 200); 
+        c.add(tino); 
+        
+        // Insurance Termination Date TextArea
+        tdate = new JComboBox(dates); 
+        tdate.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tdate.setSize(50, 20); 
+        tdate.setLocation(200, 225); 
+        c.add(tdate); 
+  
+        // Month of Insurance Termination Date
+        tmonth = new JComboBox(months); 
+        tmonth.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tmonth.setSize(60, 20); 
+        tmonth.setLocation(250, 225); 
+        c.add(tmonth); 
+  
+        // Year of Insurance Termination Date 
+        tyear = new JComboBox(years); 
+        tyear.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tyear.setSize(60, 20); 
+        tyear.setLocation(310, 225); 
+        c.add(tyear); 
+        
+        // Gender Label
+        gender = new JLabel("Gender"); 
+        gender.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        gender.setSize(100, 20); 
+        gender.setLocation(100, 250); 
+        c.add(gender); 
+  
+        // Radio Button to select gender = male
+        male = new JRadioButton("Male"); 
+        male.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        male.setSelected(true); 
+        male.setSize(75, 20); 
+        male.setLocation(200, 250); 
+        c.add(male); 
+  
+        // Radio Button to select gender = female
+        female = new JRadioButton("Female"); 
+        female.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        female.setSelected(false); 
+        female.setSize(80, 20); 
+        female.setLocation(275, 250); 
+        c.add(female); 
+  
+        gengp = new ButtonGroup(); 
+        gengp.add(male); 
+        gengp.add(female); 
+  
+        // Date of Birth Label
+        dob = new JLabel("DOB"); 
+        dob.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        dob.setSize(100, 20); 
+        dob.setLocation(100, 300); 
+        c.add(dob); 
+  
+        // Day of DOB
+        date = new JComboBox(dates); 
+        date.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        date.setSize(50, 20); 
+        date.setLocation(200, 300); 
+        c.add(date); 
+  
+        // Month of DOB
+        month = new JComboBox(months); 
+        month.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        month.setSize(60, 20); 
+        month.setLocation(250, 300); 
+        c.add(month); 
+  
+        // Year of DOB
+        year = new JComboBox(years); 
+        year.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        year.setSize(60, 20); 
+        year.setLocation(310, 300); 
+        c.add(year); 
+  
+        // Ward Label
+        ward = new JLabel("Ward"); 
+        ward.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        ward.setSize(100, 40); 
+        ward.setLocation(100, 350); 
+        c.add(ward); 
+  
+        // Normal Ward Radio button
+        normal = new JRadioButton("Normal"); 
+        normal.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        normal.setSelected(true); 
+        normal.setSize(75, 40); 
+        normal.setLocation(200, 350); 
+        c.add(normal); 
+  
+        // Emergency Ward Radio Button
+        emergency = new JRadioButton("Emergency"); 
+        emergency.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        emergency.setSelected(false); 
+        emergency.setSize(100, 40); 
+        emergency.setLocation(275, 350); 
+        c.add(emergency); 
+        
+        // Child Ward Radio Button
+        child = new JRadioButton("Child"); 
+        child.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        child.setSelected(false); 
+        child.setSize(100, 40); 
+        child.setLocation(375, 350); 
+        c.add(child); 
+        
+        gengp = new ButtonGroup(); 
+        gengp.add(normal); 
+        gengp.add(emergency);
+        gengp.add(child);
+        
+        check = new JButton("Check"); 
+        check.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        check.setSize(100, 20); 
+        check.setLocation(200, 450); 
+        check.addActionListener(this); 
+        c.add(check); 
+        
+        term = new JCheckBox("Select if all the data provided is correct"); 
+        term.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        term.setSize(320, 20); 
+        term.setLocation(150, 400); 
+        c.add(term); 
+  
+        // Submit Button
+        sub = new JButton("Submit"); 
+        sub.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        sub.setSize(100, 20); 
+        sub.setLocation(100, 500); 
+        sub.addActionListener(this); 
+        sub.setEnabled(false);
+        c.add(sub); 
+  
+        // Reset Button
+        reset = new JButton("Reset"); 
+        reset.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        reset.setSize(100, 20); 
+        reset.setLocation(200, 500); 
+        reset.addActionListener(this); 
+        c.add(reset); 
+        
+        // Direct to Previous UI page button
+        back = new JButton("Go Back"); 
+        back.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        back.setSize(100, 20); 
+        back.setLocation(300, 500); 
+        back.addActionListener(this); 
+        c.add(back);
+  
+        tout = new JTextArea(); 
+        tout.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tout.setSize(300, 400); 
+        tout.setLocation(500, 100); 
+        tout.setLineWrap(true); 
+        tout.setEditable(false); 
+        c.add(tout); 
+  
+        res = new JLabel(""); 
+        res.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        res.setSize(500, 25); 
+        res.setLocation(100, 500); 
+        c.add(res); 
+  
+        resadd = new JTextArea(); 
+        resadd.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        resadd.setSize(200, 75); 
+        resadd.setLocation(580, 175); 
+        resadd.setLineWrap(true); 
+        c.add(resadd); 
+  
+        setVisible(true); 
+    } 
+  
+    // method actionPerformed() 
+    // to get the action performed 
+    // by the user and act accordingly 
+    public void actionPerformed(ActionEvent e) 
+    { 
+        statusName = true;
+        statusIns = true;
+        if (e.getSource() == check) {
+        	
+            if (term.isSelected()) {
+            	
+            	/**
+            	 * Validation for Patient Name
+            	 */
+            	for (int i=0; i<tname.getText().length(); i++) {
+            		char ch = tname.getText().charAt(i);
+            		if (Character.isLetter(ch) || Character.isWhitespace(ch)) {
+            			continue;
+            		}
+            		else {
+            			statusName = false;
+            			break;
+            		}
+            	}
+            	
+            	/**
+            	 * Validation for Insurance Number
+            	 */
+            	if (tmno.getText().length() != 12) {
+        			statusIns = false;
+            	}
+            	else {
+            		for (int i=0; i<tmno.getText().length(); i++) {
+            			char ch = tmno.getText().charAt(i);
+                		if (Character.isLetter(ch) || Character.isDigit(ch)) {
+                			continue;
+                		}
+                		else {
+                			statusIns = false;
+                			break;
+                		}
+            		}
+            	}
+            	
+            	if (statusName == false && statusIns == false) {
+            		JOptionPane.showMessageDialog(null,  "Patient Name and Insurance Number entered is incorrect. Patient Name should contain only alphabets! \n Insurance number should be 12 characters long!");
+        			tmno.setText("");
+        			tname.setText("");
+            	}
+            	
+            	else if (statusName == false) {
+            		JOptionPane.showMessageDialog(null,  "Patient Name entered is incorrect. It should contain only alphabets!");
+        			tname.setText("");
+            	}
+            	
+            	else if (statusIns == false) {
+            		JOptionPane.showMessageDialog(null,  "Insurance Number entered is incorrect. It should be 12 characters long!");
+        			tmno.setText("");
+            	}            	
+            	
+            	if (statusName == true && statusIns == true) {
+	                String data1,data2; 
+	                String data 
+	                    = "Name : "
+	                      + tname.getText() + "\n"
+	                      + "Insurance Number : "
+	                      + tmno.getText() + "\n";
+	                String data4 
+	                = "Termination Date : "
+	                        + (String)tdate.getSelectedItem() 
+	                        + "/" + (String)tmonth.getSelectedItem() 
+	                        + "/" + (String)tyear.getSelectedItem() 
+	                        + "\n"; 
+	                String ui_date_t = tyear.getSelectedItem()+"/"+tmonth.getSelectedItem()+"/"+tdate.getSelectedItem();
+	                System.out.println(ui_date_t);
+	                String[] i1 = Instant.now().toString().split("T")[0].split("-");
+	                String[] i2_t = ui_date_t.split("/");
+	                System.out.println(Integer.parseInt(i1[0])+","+Integer.parseInt(i1[1])+","+Integer.parseInt(i1[2]));
+	                System.out.println(Integer.parseInt(i2_t[0])+","+Integer.parseInt(i2_t[1])+","+Integer.parseInt(i2_t[2]));
+	        		System.out.println();
+	        		LocalDate curr = LocalDate.of(Integer.parseInt(i1[0]), Integer.parseInt(i1[1]), Integer.parseInt(i1[2]));
+	        		LocalDate term_date = LocalDate.of(Integer.parseInt(i2_t[0]), Integer.parseInt(i2_t[1]), Integer.parseInt(i2_t[2]));
+	        		System.out.println(term_date+" "+curr);
+	        		Period diff_term = Period.between(curr, term_date);
+	        		int checkYear = diff_term.getYears();
+	        		checkYear = 12*checkYear;
+	        		int check = diff_term.getMonths();
+	        		check = check+checkYear;
+	        		System.out.println("Months:"+check);
+	        		
+	                String data3 
+	                = "DOB : "
+	                  + (String)month.getSelectedItem() 
+	                  + "/"+ (String)date.getSelectedItem()
+	                  + "/" + (String)year.getSelectedItem() 
+	                  + "\n"; 
+	                String ui_date = year.getSelectedItem()+"/"+month.getSelectedItem()+"/"+date.getSelectedItem();
+	                System.out.println(ui_date);
+	                String[] i2 = ui_date.split("/");
+	                System.out.println(Integer.parseInt(i1[0])+","+Integer.parseInt(i1[1])+","+Integer.parseInt(i1[2]));
+	                System.out.println(Integer.parseInt(i2[0])+","+Integer.parseInt(i2[1])+","+Integer.parseInt(i2[2]));
+	        		System.out.println();
+	        		LocalDate end = LocalDate.of(Integer.parseInt(i1[0]), Integer.parseInt(i1[1]), Integer.parseInt(i1[2]));
+	        		LocalDate start = LocalDate.of(Integer.parseInt(i2[0]), Integer.parseInt(i2[1]), Integer.parseInt(i2[2]));
+	        		System.out.println(end+" "+start);
+	        		Period diff1 = Period.between(start, end);
+	        		int age = diff1.getYears();
+	        		System.out.println(age);
+	                
+	                if (male.isSelected()) 
+	                    data1 = "Gender : Male"
+	                            + "\n"; 
+	                else
+	                    data1 = "Gender : Female"
+	                            + "\n"; 
+	                if (normal.isSelected() && age >= 18) 
+	                    data2 = "Ward : Normal"
+	                            + "\n"; 
+	                else  if (normal.isSelected() && age < 18) 
+	                    data2 = "Ward : Updated to Child"
+	                            + "\n";
+	                else if (child.isSelected() && age < 18) 
+	                    data2 = "Ward : Child"
+	                            + "\n";
+	                else if (child.isSelected() && age >= 18) 
+	                    data2 = "Ward : Updated to Normal"
+	                            + "\n";
+	                else
+	                    data2 = "Ward : Emergency"
+	                            + "\n"; 
+	                 
+	                if(check > 6) {
+	                	if(tname.getText().equals(null) || tmno.getText().equals(null)) {
+	                		tout.setText("Test"); 
+		                    tout.setEditable(false);
+			                res.setText("Please input all the fields..");
+	                	}
+	                	else {
+		                	tout.setText(data + data1 + data2 + data3+ data4); 
+		                    tout.setEditable(false);
+			                res.setText("Please provide input to all the fields..");	                
+			                
+			                if (male.isSelected()) {
+			    				patientGender = "Male";
+			    			}
+			    			else {
+			    				patientGender = "Female";
+			    			}
+			                
+			                if (normal.isSelected() && age >= 18) {
+			    				patientWard = "Normal";
+			    			}
+			    			else if (normal.isSelected() && age < 18) {
+			    				patientWard = "Child";
+			    			}
+			    			else if (child.isSelected() && age >= 18) {
+			    				patientWard = "Normal";
+			    			}
+			    			else {
+			    				patientWard = "Emergency";
+			    			}
+			                
+			                System.out.println("Inside New Registration");
+			                NewPatientFormModel npfm = new NewPatientFormModel();
+			                npfm.newPatientDatabase(tname.getText(),tmno.getText(),(String)tdate.getSelectedItem(),(String)tmonth.getSelectedItem(),(String)tyear.getSelectedItem(),(String)date.getSelectedItem(),(String)month.getSelectedItem(),(String)year.getSelectedItem(),patientGender, patientWard, Integer.toString(age));
+			                
+			                setVisible(false);
+			                new DoctorAssignment();
+	                	}
+	                }
+	                else {
+	                	System.out.println("Months:"+check);
+	                	tout.setText(data + data1 + data2 + data3+ data4 +"\nTermination date should be beyond 3 months from the current date."); 
+	                    tout.setEditable(false);
+	                    res.setText("Registration Unsuccessfull..");
+	                }
+	            } 
+            }
+	            else { 
+	                tout.setText(""); 
+	                resadd.setText(""); 
+	                res.setText("Please provide input to all the fields..");
+	            } 
+	        						 
+        }
+        else if(e.getSource() == back) {
+        	setVisible(false);
+			new PatientCheckView();
+		}
+        else if (e.getSource() == reset) { 
+            String def = ""; 
+            tname.setText(def);
+            tmno.setText(def); 
+            tout.setText(def); 
+            term.setSelected(false); 
+            date.setSelectedIndex(0); 
+            month.setSelectedIndex(0); 
+            year.setSelectedIndex(0); 
+            resadd.setText(def); 
+            res.setText(def); 
+        } 
+    } 
+} 

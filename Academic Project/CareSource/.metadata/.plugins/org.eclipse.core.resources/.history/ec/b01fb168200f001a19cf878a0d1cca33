@@ -1,0 +1,137 @@
+package edu.neu.csye6200;
+import javax.swing.*; 
+import java.awt.*; 
+import java.awt.event.*;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+  
+class Feedback extends JFrame implements ActionListener { 
+    private Container c; 
+    private JLabel title; 
+    private JLabel f1; 
+    private JLabel f2;
+    private JLabel f3;
+    private JLabel f4;
+    private JLabel f5;
+    private JComboBox tf5; 
+    private JComboBox tf4; 
+    private JComboBox tf3; 
+    private JComboBox tf2; 
+    private JComboBox tf1;  
+    private JButton sub; 
+    String COMMA_DELIMITER = ",";
+    String NEW_LINE_SEPARATOR = "\n";
+	String csvFile = "C:\\Users\\prite\\eclipse-workspace\\CareSource\\Caresource\\developer.csv";
+	FileWriter fileWriter;
+
+    private String fdbck[] 
+        = { "1: Bad", "2: Fair", "3: Good", "4: Very Good", "5: Excellent"}; 
+     
+    // constructor, to initialize the components 
+    // with default values. 
+    public Feedback() 
+    { 
+        setTitle("Patient Feedback Form"); 
+        setBounds(500, 150, 900, 600); 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        setResizable(false); 
+  
+        c = getContentPane(); 
+        c.setLayout(null); 
+  
+        title = new JLabel("Patient Feedback Form"); 
+        title.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        title.setSize(525, 40); 
+        title.setLocation(305, 30); 
+        c.add(title); 
+        
+        f1 = new JLabel("Nursing Care"); 
+        f1.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        f1.setSize(300, 20); 
+        f1.setLocation(250, 100); 
+        c.add(f1); 
+        
+        tf1 = new JComboBox(fdbck); 
+        tf1.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tf1.setSize(100, 20); 
+        tf1.setLocation(550, 100); 
+        c.add(tf1); 
+  
+        f2 = new JLabel("Care and Treatment by Doctor"); 
+        f2.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        f2.setSize(300, 20); 
+        f2.setLocation(250, 150); 
+        c.add(f2); 
+        
+        tf2 = new JComboBox(fdbck); 
+        tf2.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tf2.setSize(100, 20); 
+        tf2.setLocation(550, 150); 
+        c.add(tf2); 
+        
+        f3 = new JLabel("Bed Availability"); 
+        f3.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        f3.setSize(300, 20); 
+        f3.setLocation(250, 200); 
+        c.add(f3); 
+        
+        tf3 = new JComboBox(fdbck); 
+        tf3.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tf3.setSize(100, 20); 
+        tf3.setLocation(550, 200); 
+        c.add(tf3); 
+        
+        f4 = new JLabel("Immediate attention on arrival"); 
+        f4.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        f4.setSize(300, 20); 
+        f4.setLocation(250, 250); 
+        c.add(f4); 
+        
+        tf4 = new JComboBox(fdbck); 
+        tf4.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tf4.setSize(100, 20); 
+        tf4.setLocation(550, 250); 
+        c.add(tf4); 
+        
+        f5 = new JLabel("Overall Experience"); 
+        f5.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        f5.setSize(300, 20); 
+        f5.setLocation(250, 300); 
+        c.add(f5); 
+        
+        tf5 = new JComboBox(fdbck); 
+        tf5.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tf5.setSize(100, 20); 
+        tf5.setLocation(550, 300); 
+        c.add(tf5); 
+  
+        sub = new JButton("Submit"); 
+        sub.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        sub.setSize(100, 20); 
+        sub.setLocation(400, 350); 
+        sub.addActionListener(this); 
+        c.add(sub); 
+  
+         
+//        res = new JLabel(""); 
+//        res.setFont(new Font("Arial", Font.PLAIN, 20)); 
+//        res.setSize(500, 25); 
+//        res.setLocation(100, 500); 
+//        c.add(res); 
+  
+        setVisible(true); 
+    } 
+  
+    // method actionPerformed() 
+    // to get the action performed 
+    // by the user and act accordingly 
+    public void actionPerformed(ActionEvent e) 
+    { 
+        if (e.getSource() == sub) {  
+        	new LoginView();
+        }
+    }
+} 

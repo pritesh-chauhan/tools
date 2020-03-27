@@ -1,0 +1,60 @@
+package edu.neu.csye6200;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+
+import javax.swing.JOptionPane;
+
+public class RevisitPatientFormController {
+	public void revisitControl(patientDob) {
+		
+		/**
+		 * Calculation of Age
+		 */
+		System.out.println(patientDob);
+		String[] i1 = Instant.now().toString().split("T")[0].split("-");
+		String[] i2_Dob = patientDob.split("/");
+		LocalDate end = LocalDate.of(Integer.parseInt(i1[0]), Integer.parseInt(i1[1]), Integer.parseInt(i1[2]));
+		LocalDate start = LocalDate.of(Integer.parseInt(i2_Dob[2]), Integer.parseInt(i2_Dob[1]), Integer.parseInt(i2_Dob[0]));
+		Period diff1 = Period.between(start, end);
+		patientAge = diff1.getYears();
+		System.out.println(patientAge);
+		
+		/**
+		 * Insurance Termination Date Check
+		 */
+		System.out.println("Insurance Termination Date:"+patientInsTermDate);
+		String[] i2_insTerm = patientInsTermDate.split("/");
+		LocalDate curr = LocalDate.of(Integer.parseInt(i1[0]), Integer.parseInt(i1[1]), Integer.parseInt(i1[2]));
+		LocalDate term_date = LocalDate.of(Integer.parseInt(i2_insTerm[2]), Integer.parseInt(i2_insTerm[1]), Integer.parseInt(i2_insTerm[0]));
+		System.out.println(term_date+" "+curr);
+		Period diff_term = Period.between(curr, term_date);
+		int checkYear = diff_term.getYears();
+		checkYear = 12*checkYear;
+		int check = diff_term.getMonths();
+		check = Math.abs(check);
+		check = check+checkYear;
+		
+		if (check <= 6) {
+			JOptionPane.showMessageDialog(null,  "Insurance is Expiring Soon or has been Expired! Bill to be paid in full by the patient.");
+		}
+		
+		if (ward == "Normal" && patientAge >= 18) {
+			patientWard = "Normal";
+		}
+        else  if (ward == "Normal" && patientAge < 18) {
+        	patientWard = "Child";
+        }
+        else if (ward == "Child" && patientAge < 18) {
+        	patientWard = "Child";
+        }
+        else if (ward == "Child" && patientAge >= 18) {
+        	patientWard = "Normal";
+        }
+        else {
+        	patientWard = "Emergency";
+        }
+		break;
+	}
+}

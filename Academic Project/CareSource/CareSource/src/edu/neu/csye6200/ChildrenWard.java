@@ -1,0 +1,39 @@
+package edu.neu.csye6200;
+
+
+public class ChildrenWard  {
+
+	private  static ChildrenWard instance;
+	private static int count=-1;
+	protected static String cw= "ChildrenWard";
+	
+	private ChildrenWard(){
+		// prevent from the reflection API.
+		if(instance!=null)
+			throw new RuntimeException("Use getInstance() method to get the single instance");
+		}
+	
+	
+	public static int getCount() {
+		return count;
+	}
+
+
+	public static void setCount(int count) {
+		ChildrenWard.count = count;
+	}
+
+
+	public static ChildrenWard getInstance() {
+		
+		if(instance==null)
+		
+		instance= new ChildrenWard();
+		 count =Counter.demo (cw);
+	
+		return instance;
+
+		
+	}
+}
+

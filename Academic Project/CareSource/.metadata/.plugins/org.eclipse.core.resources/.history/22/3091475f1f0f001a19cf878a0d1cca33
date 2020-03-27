@@ -1,0 +1,168 @@
+package edu.neu.csye6200;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Pharmacy extends JFrame implements ActionListener {
+	private Container c; 
+    private JLabel title; 
+    private JLabel name; 
+    private JLabel res;
+    private JLabel res1;
+    private JLabel val; 
+    private JTextField tval; 
+    private JTextField tname; 
+    private JLabel ino;
+    private JLabel tadd;
+    private JLabel tadd1;
+    private JTextField tmno; 
+    private JTextField taddt;
+    private JButton register; 
+    private JTextArea tout;
+    private JButton sub; 
+    private JButton sub1; 
+    private JButton chkout; 
+    
+	public Pharmacy() {
+		setTitle("Pharmacy"); 
+        setBounds(500, 150, 900, 600); 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        setResizable(false); 
+  
+        c = getContentPane(); 
+        c.setLayout(null); 
+  
+        title = new JLabel("CareSource Pharmacy"); 
+        title.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        title.setSize(300, 30); 
+        title.setLocation(300, 30); 
+        c.add(title); 
+        
+        val = new JLabel("Number of Medicines to add"); 
+        val.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        val.setSize(260, 20); 
+        val.setLocation(200,150); 
+        c.add(val); 
+        
+        tval = new JTextField(); 
+        tval.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tval.setSize(190, 20); 
+        tval.setLocation(480, 150); 
+        c.add(tval); 
+  
+        name = new JLabel("Medicine Name"); 
+        name.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        name.setSize(180, 20); 
+        name.setLocation(200,200); 
+        c.add(name); 
+  
+        tname = new JTextField(); 
+        tname.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tname.setSize(190, 20); 
+        tname.setLocation(480, 200); 
+        c.add(tname); 
+  
+        ino = new JLabel("Number of Dose"); 
+        ino.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        ino.setSize(200, 20); 
+        ino.setLocation(200, 250); 
+        c.add(ino); 
+  
+        tmno = new JTextField(); 
+        tmno.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        tmno.setSize(190, 20); 
+        tmno.setLocation(480, 250); 
+        c.add(tmno); 
+       
+
+        sub = new JButton("Add Medicine"); 
+        sub.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        sub.setSize(120, 20); 
+        sub.setLocation(300, 300); 
+        sub.addActionListener(this); 
+        c.add(sub); 
+        
+        chkout = new JButton("Checkout"); 
+        chkout.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        chkout.setSize(100, 20); 
+        chkout.setLocation(470, 300); 
+        chkout.addActionListener(this); 
+        c.add(chkout); 
+
+        res = new JLabel(""); 
+        res.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        res.setSize(600, 25); 
+        res.setLocation(150, 330); 
+        c.add(res); 
+        
+        tadd = new JLabel("Provide enter the medicines to"); 
+        tadd.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        tadd.setSize(350, 20); 
+        tadd.setLocation(150, 400); 
+        c.add(tadd);
+        
+        tadd1 = new JLabel("update in stock ('med_name', 'stock', 'price')"); 
+        tadd1.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        tadd1.setSize(400, 20); 
+        tadd1.setLocation(150, 430); 
+        c.add(tadd1); 
+        
+//	update in stock
+        taddt = new JTextField(); 
+        taddt.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        taddt.setSize(190, 20); 
+        taddt.setLocation(480, 400); 
+        c.add(taddt); 
+        
+        sub1 = new JButton("Add Medicines to Stock"); 
+        sub1.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        sub1.setSize(200, 20); 
+        sub1.setLocation(330, 480); 
+        sub1.addActionListener(this); 
+        c.add(sub1); 
+        
+        res1 = new JLabel(""); 
+        res1.setFont(new Font("Arial", Font.PLAIN, 20)); 
+        res1.setSize(600, 25); 
+        res1.setLocation(150, 520); 
+        c.add(res1); 
+        
+        setVisible(true); 
+	}
+	public void actionPerformed(ActionEvent e) {
+//		sub.setEnabled(false);
+		if (e.getSource() == sub) {
+				AssignPharmacy ap = new AssignPharmacy();
+				System.out.println(tname.getText()+"     "+tmno.getText()+"   "+ Integer.parseInt(tval.getText()));
+				String rval = ap.assign(tname.getText(), tmno.getText(), Integer.parseInt(tval.getText()));
+				res.setText(rval);
+				
+		}
+		else if(e.getSource() == sub1) {
+//			PharmacyMed p = new PharmacyMed();
+			String nval="";
+			try {
+				nval += PharmacyMed.Demo(taddt.getText());
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			res1.setText(nval);
+			setVisible(false);
+			new Feedback();
+		}
+		else { 
+			tname.setText("");
+			tmno.setText("");
+            tout.setText(""); 
+        }
+	}
+	
+}

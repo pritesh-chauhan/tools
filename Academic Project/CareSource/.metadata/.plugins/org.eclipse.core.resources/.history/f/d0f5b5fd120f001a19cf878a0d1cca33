@@ -1,0 +1,140 @@
+package edu.neu.csye6200;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+
+public class Counter extends CounterAPI {
+	
+String file = "Ward.csv";
+String src;
+String des;
+int val;
+List<String> counterList= new ArrayList<>();
+@Override
+public void copy() {
+	
+	try {
+		FileReader fileReader = new FileReader(file);
+		BufferedReader csvReader= new BufferedReader(fileReader);
+		String nextRecord;
+		while((nextRecord=csvReader.readLine())!=null)
+		{
+			String data=String.join(",",nextRecord);
+			counterList.add(data);
+		}
+		csvReader.close();
+	}
+	catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+}
+
+@Override
+public void read() {
+
+}
+	
+
+@Override
+public void write() {
+try {
+	FileWriter outputfile= new FileWriter(file);
+	BufferedWriter writer = new BufferedWriter(outputfile);
+	
+	for(int i=0;i<counterList.size();i++)
+	{	
+//    	String[] temp1 = fetch.get(i).split("");
+//    	System.out.println("Temp1 0: "+temp1[0]);
+    	System.out.println("Temp1 1: "+counterList.get(i));
+		writer.write(fetch.get(i));
+//		writer.write(temp1[1]);
+		writer.newLine();
+		
+	}
+	writer.close();
+
+    
+	writer.close();
+}	
+catch(IOException e) {
+	e.printStackTrace();
+}
+}
+
+@Override
+public int modify(String Ward) {
+	System.out.println("Ward: "+Ward);
+int count;
+try {
+	BufferedReader csvReader= new BufferedReader(new FileReader(file));
+	
+	Scanner sc = new Scanner(csvReader);
+	while(sc.hasNext())
+	{   
+		String line=sc.nextLine();
+		
+		
+			
+		if(line.contains(Ward))
+		{
+			System.out.println("Line: "+line);
+			Scanner sc2= new Scanner(line);
+//			System.out.println("SC2: "+);
+			sc2.useDelimiter(",");
+			String inLine =sc2.next();
+			System.out.println("Inline: "+inLine);
+			 count= sc2.nextInt();
+			System.out.println("Outside: "+count);
+			
+			if(count < 20) {
+				src=line;
+				String [] data1 = new String[2];
+				data1[0]= inLine;
+				val =count+1;
+				data1[1]=String.valueOf(val);
+				des=String.join(",", data1[0],data1[1]);
+				Collections.replaceAll(counterList, src, des);
+			}
+			else if(count>=20)
+			{
+				System.out.println("Count: "+count);
+				val= Fetch.demo(Ward);
+				if(val == 0)
+					System.out.println("No beds available 1");
+			}
+		}
+		
+  }
+csvReader.close();
+
+} catch(Exception e) {
+	e.printStackTrace();
+  }
+return val;		
+}
+
+public static int demo( String ward) {
+	Counter c = new Counter();
+	c.copy();
+    int v=c.modify(ward);
+	c.write();
+	return v;	
+
+}
+
+}
+
+
+
+
+
+
+

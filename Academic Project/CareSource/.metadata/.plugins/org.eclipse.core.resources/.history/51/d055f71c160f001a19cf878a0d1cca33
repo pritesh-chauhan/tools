@@ -1,0 +1,100 @@
+package edu.neu.csye6200;
+
+import java.util.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+
+public class Fetch {
+	
+	public static int demo(String ward)
+	{ int count=-1;
+		switch(ward)
+		{
+		case "ChildrenWard":
+		String file="Children.csv";	
+		count=Fetch.read(file);	
+		break;
+		case "EmergencyWard":
+		String file1="Emergency.csv";
+		count=Fetch.read(file1);	
+		break;
+		case "NormalWard":
+		String file2="Normal.csv";
+		count=Fetch.read(file2);
+		break;
+		}
+		return count;
+	}
+
+public static int read(String file) {
+int val=-1;
+List<String> fetch = new ArrayList<>();
+System.out.println("Filename: "+file+" "+fetch);
+int xx=-1;
+
+	try { 
+			FileReader filereader = new FileReader(file); 
+			
+			BufferedReader csvReader = new BufferedReader(filereader);
+			
+			Scanner sc = new Scanner(csvReader);
+			while(sc.hasNext())
+			{   
+				String line=sc.nextLine();
+				System.out.println("Here Line: "+line);
+				Scanner sc2 = new Scanner(line);
+				sc2.useDelimiter("[,]");
+//				sc2.useDelimiter("\\s+");
+//				System.out.println(sc2.next());
+				String inLine = sc2.next();
+				 String outLine= sc2.next();
+				 String data[]= new String[2];
+				  data[0]= inLine.split(" ")[0];
+				  data[1]=outLine.split(" ")[0];
+				  System.out.println("Data: "+data[0]+" "+data[1]);
+				  String ready=data[0]+","+data[1];
+				  fetch.add(ready);       
+				  xx = 1;
+		      } 
+			if(xx == 1) {
+				System.out.println("Here:"+fetch.get(0));
+		        String temp = fetch.get(0);
+		    	String [] va= temp.split(",");
+		    	val = Integer.parseInt(va[1]);
+		    	fetch.remove(0);
+		        csvReader.close();
+		        try { 
+				    FileWriter outputfile = new FileWriter(file); 
+				    BufferedWriter writer = new BufferedWriter(outputfile); 
+				    System.out.println(fetch);
+				    for(int i=0;i<fetch.size();i++)
+					{	
+//				    	String[] temp1 = fetch.get(i).split("");
+//				    	System.out.println("Temp1 0: "+temp1[0]);
+				    	System.out.println("Temp1 1: "+fetch.get(i));
+						writer.write(fetch.get(i));
+//						writer.write(temp1[1]);
+						writer.newLine();
+						
+					}
+					writer.close();
+			
+				    } 
+				    catch (IOException e) { 
+				        e.printStackTrace();
+				        } 
+			}
+	    } 
+	    catch (Exception e) { 
+	        e.printStackTrace(); 
+	    } 
+//	if(xx==1) {
+//		
+//	}
+return val;
+ }
+}

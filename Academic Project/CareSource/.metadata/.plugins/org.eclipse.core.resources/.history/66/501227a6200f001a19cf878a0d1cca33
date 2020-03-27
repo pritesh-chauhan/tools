@@ -1,0 +1,102 @@
+package edu.neu.csye6200;
+import java.awt.Container;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
+/**
+ * UI to select New Patient registration or Revisiting Patient 
+ * @author Pritesh Chauhan
+ */
+public class PatientCheckView extends JFrame implements ActionListener {
+	private Container c; 
+    private JLabel title; 
+    private JRadioButton revisit; 
+    private JRadioButton newvisit; 
+    private JRadioButton dis; 
+    private JButton sub; 
+    private ButtonGroup gengp;
+    
+	public PatientCheckView() {
+		
+		setTitle("Patient Type Selection"); 
+        setBounds(500, 150, 900, 600); 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        setResizable(false);
+        c = getContentPane(); 
+        c.setLayout(null); 
+        
+        // Title label
+        title = new JLabel("Select Type"); 
+        title.setFont(new Font("Arial", Font.PLAIN, 30)); 
+        title.setSize(300, 30); 
+        title.setLocation(300, 30); 
+        title.setHorizontalAlignment(JLabel.CENTER);
+        title.setVerticalAlignment(JLabel.CENTER);
+        c.add(title);
+  
+        // Revisit Patient Button
+        revisit = new JRadioButton("Revisit"); 
+        revisit.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        revisit.setSelected(true); 
+        revisit.setSize(200, 20); 
+        revisit.setLocation(250, 200); 
+        revisit.setHorizontalAlignment(JLabel.CENTER);
+        revisit.setVerticalAlignment(JLabel.CENTER);
+        c.add(revisit); 
+  
+        // New Patient Button
+        newvisit = new JRadioButton("New"); 
+        newvisit.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        newvisit.setSelected(false); 
+        newvisit.setSize(300, 20); 
+        newvisit.setLocation(400, 200);
+        newvisit.setHorizontalAlignment(JLabel.CENTER);
+        newvisit.setVerticalAlignment(JLabel.CENTER);
+        c.add(newvisit); 
+        
+        
+        dis = new JRadioButton("Discharge"); 
+        dis.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        dis.setSelected(false); 
+        dis.setSize(300, 20); 
+        dis.setLocation(400, 200);
+        dis.setHorizontalAlignment(JLabel.CENTER);
+        dis.setVerticalAlignment(JLabel.CENTER);
+        c.add(dis); 
+        
+        gengp = new ButtonGroup(); 
+        gengp.add(revisit); 
+        gengp.add(newvisit); 
+        
+        // Submit Button
+        sub = new JButton("Submit"); 
+        sub.setFont(new Font("Arial", Font.PLAIN, 15)); 
+        sub.setSize(100, 20); 
+        sub.setLocation(400, 300); 
+        sub.addActionListener(this); 
+        sub.setHorizontalAlignment(JLabel.CENTER);
+        sub.setVerticalAlignment(JLabel.CENTER);
+        c.add(sub); 
+        setVisible(true); 
+	}
+	public void actionPerformed(ActionEvent e) 
+    { 
+		if (e.getSource() == sub) { 
+			if (newvisit.isSelected()){
+				setVisible(false);
+	            new NewPatientFormView();
+			}
+			else{
+				setVisible(false);
+	            new RevisitPatientFormView();
+			}
+		}
+    }
+}

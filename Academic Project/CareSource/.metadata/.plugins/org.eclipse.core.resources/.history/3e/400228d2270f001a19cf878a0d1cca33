@@ -1,0 +1,25 @@
+package edu.neu.csye6200;
+
+public class PatientFileDatabase {
+	String[] array = new String[8];
+	
+	public void patient(String tname,String tmno, String patientWard, int n) {
+		String bedNumber = Integer.toString(n);
+		array[0] = tname;
+		array[1] = tmno;
+		array[6] = patientWard;
+		array[7] = bedNumber;
+	}
+	
+	public void doctor(String dId, String dFName, String dLName, String spec) {
+		array[2] = dId;
+		array[3] = dFName;
+		array[4] = dLName;
+		array[5] = spec;
+	}
+	
+	public String patientString() {
+		String details = String.join(",", array);		
+		return details;
+	}
+}

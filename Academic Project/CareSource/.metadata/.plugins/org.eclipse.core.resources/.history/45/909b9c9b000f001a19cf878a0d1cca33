@@ -1,0 +1,36 @@
+package edu.neu.csye6200;
+
+
+public class WardConnect {
+
+	public static void main(String[] args) {
+         WardConnect.ConnectwithUI("ChildrenWard");
+	}
+	
+     public static void  ConnectwithUI(String Wardname)
+     {
+    	 switch(Wardname)
+    	 {
+    	 case "ChildrenWard":
+		
+     		ChildrenWard.getInstance();
+    		System.out.println(ChildrenWard.getCount());
+     		break;
+		    
+    	 case "NormalWard":
+    	 NormalWard.getInstance();
+    	 System.out.println(NormalWard.getCount());
+    	 break;
+//         
+//    	 case "EmergencyWard":
+//    		 EmergencyWard.getInstance();
+//    		 return EmergencyWard.getCount();
+//    		 default:
+//        	 return -1;   	 
+//    	 }
+     }
+
+	}
+     }	
+      	
+
