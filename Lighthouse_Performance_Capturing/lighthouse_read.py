@@ -12,9 +12,9 @@ def update_data(url, cookie_value, loc, page_val,i):
     options = Options()
     options.set_headless(headless=True)
     browser = webdriver.Chrome()
-    browser.get('https://zclm-dev.zebra.com/'+str(page_val))
+    browser.get('https://nytimes.com/'+str(page_val))
     browser.add_cookie({'name': 'connect.sid', 'value': 's%3AW6Bzk2jkfYOokvHoYX1usdfRGyZ7EjWy.mxxL8ceq64A3Q1GeHZfZEVF3S8NE11GC%2FSNLkXJmBgc'})
-    browser.get('https://zclm-dev.zebra.com/'+str(page_val))
+    browser.get('https://nytimes.com/'+str(page_val))
     print browser.execute_script("return (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;") #--disable-network-throttling
     '''
     cmd = 'lighthouse --chrome-flags="--disable-gpu --headless --no-sandbox" '+str(url)+'/'+str(page_val)+' --emulated-form-factor=none --throttling-method=provided --quiet --extra-headers=header.json --output html --output-path test.html %1 %2'
@@ -57,10 +57,10 @@ def update_data(url, cookie_value, loc, page_val,i):
     #browser.navigate().refresh()
     browser.refresh()
     
-    browser.get('https://zclm-dev.zebra.com/'+str(page_val))
+    browser.get('https://nytimes.com/'+str(page_val))
     browser.add_cookie({'name': 'connect.sid', 'value': cookie_value})
     browser.refresh()
-    #browser.get('https://zclm-dev.zebra.com/'+str(page_val))
+    #browser.get('https://nytimes.com/'+str(page_val))
     print "Loading Time: "+str(browser.execute_script("return (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;"))
     sheet_wr.cell(row=i+1, column=5).value = browser.execute_script("return (performance.timing.loadEventEnd - performance.timing.navigationStart) / 1000;")
     browser.close()
@@ -70,10 +70,10 @@ def update_data(url, cookie_value, loc, page_val,i):
     
 if __name__ == '__main__':
     
-    url = 'https://zclm-dev.zebra.com'
+    url = 'https://nytimes.com'
     cookie_value = 's%3AA6K-rGnB4UGEhlSS2sNYOiQGHyl_-VMj.iKt2jrRmhVtdxUfILpuaAJ0NjpsTdlGKiRzHJKdtAGY'
     loc = "C:\\Users\\20080346\\Desktop\\lighthouse\\CLM_UI_Performance.xlsx"
-    file_name="C:\\Users\\20080346\\Desktop\\lighthouse\\CLM_UI_Performance_"+str(datetime.datetime.now().day)+"_"+str(datetime.datetime.now().month)+"_"+str(datetime.datetime.now().year)+"_"+str(datetime.datetime.now().hour)+"_"+str(datetime.datetime.now().minute)+".xlsx"
+    file_name="C:\\Users\\20080346\\Desktop\\lighthouse\\nytimes_"+str(datetime.datetime.now().day)+"_"+str(datetime.datetime.now().month)+"_"+str(datetime.datetime.now().year)+"_"+str(datetime.datetime.now().hour)+"_"+str(datetime.datetime.now().minute)+".xlsx"
     wb = xlrd.open_workbook(loc)
     sheet = wb.sheet_by_index(0)
     for i in range(4,sheet.nrows):
