@@ -1,0 +1,68 @@
+/* This file contains all the styling for web page form. */
+.div8 {
+  margin-top: 40px;
+  display: grid;
+  grid-template-rows: repeat(3, 10% 80% 10%); }
+
+.div_8_1 {
+  grid-row: 1 span;
+  text-align: center; }
+
+.div_8_2 {
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin-top: 10px;
+  text-align: center; }
+
+.div_8_2_col1 {
+  grid-column: 1/2;
+  margin-left: 300px;
+  width: 60%; }
+
+.div_8_2_col2 {
+  grid-column: 2/2;
+  width: 60%; }
+
+.div_8_2_col3 {
+  grid-column: 1 span;
+  margin-left: 140px;
+  width: 163%; }
+
+.div_8_3 {
+  grid-row: 3/3;
+  margin-top: 10px;
+  text-align: center; }
+
+.padding {
+  padding-right: 200px;
+  padding-left: 200px; }
+
+/* The below is an example for styling for input tage which are of type text, email, and tel and select tag. */
+input[type=text], input[type=email], input[type=tel], select {
+  height: 50px;
+  width: 90%;
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+input[type=submit] {
+  text-align: center;
+  padding: 12px 20px;
+  margin: 8px 0; }
+
+textarea {
+  height: 40%;
+  width: 70%;
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+.div_form {
+  width: 100%;
+  float: left; }

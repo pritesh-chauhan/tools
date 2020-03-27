@@ -1,0 +1,515 @@
+html {
+  box-sizing: border-box;
+  overflow: visible;
+  width: 100%; }
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  text-decoration: none; }
+
+body {
+  margin: 10px; }
+
+.width, .wrapper, .main, .main_div4, .main_div5, .div5_2_col1, .div5_2_col2, .main_div6 {
+  width: 100; }
+
+.wrapper {
+  display: grid;
+  grid-gap: 5px;
+  height: 2000px;
+  margin: 0 auto 100px auto; }
+
+.main {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: repeat(3, 100%); }
+
+.main1 {
+  grid-column: 1/2;
+  margin-top: 90px;
+  float: left;
+  text-align: right; }
+
+.main img {
+  margin-top: 30px;
+  margin-left: 0px; }
+
+.img {
+  margin-left: 250px; }
+
+.main2 {
+  margin-top: 105px;
+  float: left;
+  text-align: left; }
+
+.main_div4 {
+  margin-left: 105px;
+  display: grid;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  grid-template-rows: repeat(1, 25%); }
+
+.main_div5 {
+  text-align: center;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-template-rows: repeat(3, 10% 80% 10%); }
+
+.progress_border {
+  background-color: lightgray; }
+
+/* The below is an example for styling for class name progress where we are providing height, width and background color. */
+.progress {
+  height: 10px;
+  width: 75%;
+  background-color: grey; }
+
+.center {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 30px; }
+
+.progress1 {
+  height: 10px;
+  width: 85%;
+  background-color: grey; }
+
+.progress2 {
+  height: 10px;
+  width: 70%;
+  background-color: grey; }
+
+.div5_1 {
+  grid-column: 2 span;
+  grid-row: 1 span;
+  text-align: center; }
+
+.div5_2_col1 {
+  display: grid;
+  grid-row: 2/3;
+  grid-column: 1/2;
+  grid-template-rows: 33% 33% 34%; }
+
+.map {
+  margin-top: -400px; }
+
+.div5_2_col2 {
+  display: grid;
+  grid-row: 2/3;
+  grid-column: 2/2;
+  grid-template-rows: repeat(3, 33% 33% 34%); }
+
+.sub_div5_1_col1 {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  float: left; }
+
+.sub_div5_1_col2 {
+  grid-column: 2/2;
+  grid-row: 1/3;
+  float: left; }
+
+.sub_div5_2_col1 {
+  grid-column: 1;
+  grid-row: 2/3;
+  float: left; }
+
+.sub_div5_2_col2 {
+  grid-column: 2;
+  grid-row: 2/3;
+  float: left; }
+
+.sub_div5_3_col1 {
+  grid-column: 1;
+  grid-row: 3/3;
+  float: left; }
+
+.sub_div5_3_col2 {
+  grid-column: 2;
+  grid-row: 3/3;
+  float: left; }
+
+.block1 {
+  text-align: left;
+  margin-left: 250px;
+  margin-bottom: 250px;
+  width: 400px;
+  padding: 30px;
+  box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3); }
+
+.block2 {
+  text-align: left;
+  margin-left: 50px;
+  width: 400px;
+  padding: 30px;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3); }
+
+.block3 {
+  text-align: left;
+  margin-left: 250px;
+  width: 400px;
+  padding: 30px;
+  margin-top: 100px;
+  margin-bottom: 150px;
+  box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3); }
+
+.block4 {
+  color: white;
+  background-color: grey;
+  opacity: 0.5;
+  text-align: left;
+  margin-left: 50px;
+  width: 400px;
+  padding: 30px;
+  box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px lightgray, 0.3em 0.3em 1em lightgray; }
+
+.block5 {
+  color: black;
+  background-color: white;
+  text-align: left;
+  margin-left: 50px;
+  width: 350px;
+  box-shadow: 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px white, 0.3em 0.3em 1em rgba(0, 0, 0, 0.3); }
+
+.div5_3 {
+  margin-top: 60px;
+  grid-column: 2 span;
+  grid-row: 3 span;
+  text-align: center; }
+
+svg {
+  box-shadow: 10px 60px 60px gray;
+  opacity: 0.5;
+  border-radius: 50%;
+  border-color: grey; }
+
+.div3_1 {
+  grid-column: 0.25;
+  grid-row: 1/1; }
+
+.div3_2 {
+  grid-column: 0.5;
+  grid-row: 1/1; }
+
+.div3_3 {
+  grid-column: 0.75;
+  grid-row: 1/1; }
+
+.div3_4 {
+  grid-column: 1;
+  grid-row: 1/1; }
+
+.radialProgressBar {
+  border-radius: 60%;
+  -webkit-transform: translate(50%, 50%);
+  transform: translate(50%, 50%);
+  width: 140px;
+  height: 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background: #ddd;
+  margin: 20px; }
+
+.radialProgressBar .overlay {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  background: #fff;
+  text-align: center;
+  padding-top: 10%; }
+
+.progress-50 {
+  background-image: linear-gradient(90deg, grey 50%, transparent 50%), linear-gradient(135deg, lightgray 50%, #ddd 50%); }
+
+.progress-70 {
+  background-image: -webkit-linear-gradient(50deg, #ddd 50%, transparent 50%), -webkit-linear-gradient(left, grey 50%, #ddd 50%);
+  background-image: linear-gradient(-145deg, grey 50%, transparent 50%), linear-gradient(5deg, lightgray 50%, #ddd 50%); }
+
+.button {
+  background-color: lightgray;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; }
+
+.button1 {
+  background-color: white;
+  border-radius: 15px;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer; }
+
+.button:hover {
+  border: 3px solid #1cb692; }
+
+.button1:hover {
+  border: 3px solid #1cb692; }
+
+.buttonw {
+  background-color: white;
+  border: none;
+  color: gray;
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px; }
+
+.buttonw:hover {
+  border: 3px solid #1cb692;
+  border-radius: 15px; }
+
+.main_div6 {
+  display: grid;
+  text-align: center;
+  margin-top: 50px;
+  display: grid;
+  grid-template-rows: repeat(3, 10% 80% 10%); }
+
+.div6_1 {
+  grid-row: 1 span;
+  text-align: center; }
+
+.div6_2 {
+  grid-row: 2/3;
+  float: left;
+  padding: 25px; }
+
+.div6_2 img {
+  margin-right: 20px; }
+
+.overlay_plus:hover {
+  position: relative;
+  color: #f1f1f1;
+  transition: .5s ease;
+  opacity: 0.3; }
+
+.div6_3 {
+  grid-row: 3 span;
+  text-align: center; }
+
+.head {
+  font-size: 35px;
+  font-weight: 900; }
+
+.head2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900; }
+
+.navlist {
+  position: relative; }
+
+.div7 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 25px; }
+
+blockquote div img {
+  width: 350px;
+  height: 200px; }
+
+.navlist img {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  top: 0; }
+
+.navlist img {
+  height: 44px;
+  display: block; }
+
+.home {
+  left: 688px;
+  width: 46px;
+  border-radius: 50%; }
+
+.prev {
+  left: 774px;
+  width: 43px;
+  border-radius: 50%; }
+
+.round {
+  border-radius: 50%;
+  left: 725px; }
+
+ul img:hover {
+  border: 3px solid #1cb692; }
+
+.head2 {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 900; }
+
+h4 {
+  color: grey; }
+
+h5 {
+  color: black;
+  font-weight: bold; }
+
+.navbar {
+  overflow: hidden;
+  background-color: white;
+  font-weight: 900;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+
+.navbar a {
+  float: right;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px; }
+
+.navbar a:hover {
+  background: #ddd; }
+
+/* This file contains all the styling for web page form. */
+.div8 {
+  margin-top: 40px;
+  display: grid;
+  grid-template-rows: repeat(3, 10% 80% 10%); }
+
+.div_8_1 {
+  grid-row: 1 span;
+  text-align: center; }
+
+.div_8_2 {
+  grid-row: 2/3;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  margin-top: 10px;
+  text-align: center; }
+
+.div_8_2_col1 {
+  grid-column: 1/2;
+  margin-left: 300px;
+  width: 60%; }
+
+.div_8_2_col2 {
+  grid-column: 2/2;
+  width: 60%; }
+
+.div_8_2_col3 {
+  grid-column: 1 span;
+  margin-left: 140px;
+  width: 163%; }
+
+.div_8_3 {
+  grid-row: 3/3;
+  margin-top: 10px;
+  text-align: center; }
+
+.padding {
+  padding-right: 200px;
+  padding-left: 200px; }
+
+/* The below is an example for styling for input tage which are of type text, email, and tel and select tag. */
+input[type=text], input[type=email], input[type=tel], select {
+  height: 50px;
+  width: 90%;
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+input[type=submit] {
+  text-align: center;
+  padding: 12px 20px;
+  margin: 8px 0; }
+
+textarea {
+  height: 40%;
+  width: 70%;
+  display: inline-block;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 4px; }
+
+.div_form {
+  width: 100%;
+  float: left; }
+
+.footer {
+  display: grid;
+  grid-template-rows: repeat(3, 10% 70% 20%);
+  grid-template-columns: repeat(2, 30% 70%); }
+
+.footer1 {
+  grid-row: 1 span;
+  grid-column: 2 span;
+  text-align: right; }
+  .footer1 a.fixed {
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px; }
+
+.footer2 {
+  grid-row: 2/3;
+  grid-column: 1/2;
+  text-align: left; }
+
+.footer3 {
+  margin-top: 25px;
+  display: grid;
+  text-align: right;
+  grid-row: 2/3;
+  grid-column: 2/2;
+  grid-template-rows: repeat(2, 30% 70%);
+  grid-template-columns: repeat(3, 33.33% 33.33% 33.33%);
+  padding: 5px; }
+
+.footer3_1 {
+  grid-row: 1/2;
+  grid-column: 3 span; }
+
+.footer3_2 {
+  margin-top: 25px;
+  grid-row: 2/2;
+  grid-column: 1/3;
+  text-align: center; }
+
+.footer3_3 {
+  margin-top: 25px;
+  grid-row: 2/2;
+  grid-column: 2/3;
+  text-align: center; }
+
+.footer3_4 {
+  margin-top: 25px;
+  grid-row: 2/2;
+  grid-column: 3/3;
+  text-align: center; }
+
+.footer4 {
+  grid-row: 3/3;
+  grid-column: 2 span;
+  text-align: center; }

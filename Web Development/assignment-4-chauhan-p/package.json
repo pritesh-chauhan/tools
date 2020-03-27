@@ -1,0 +1,24 @@
+{
+  "name": "assignment-4-chauhan-p",
+  "version": "1.0.0",
+  "description": "<h1>Problem Statement</h1>\r <p>The goal of this assignment is to learn about CSS positioning, Grid layout, SCSS features like variables, mixins, inheritance, loops, functions, math operations, etc.</p>\r <h1>Information</h1>\r <h2>Name: <b>Pritesh Chauhan<br>NUID: 003177575</b></h2>\r This is the <b>Web-Design</b> course <b>Fourth Assignment</b> in which I have created a <b>Comapnies Web Page form using HTML and CSS </b>\r that is based on the sample image provided on the blackboard. There are in all <b>1 html page and 4 scss css stylesheets.</b>",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "sass": "^1.25.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "sass": "./node_modules/.bin/node-sass styles -o dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neu-mis-info6150-spring-2020/assignment-4-chauhan-p.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neu-mis-info6150-spring-2020/assignment-4-chauhan-p/issues"
+  },
+  "homepage": "https://github.com/neu-mis-info6150-spring-2020/assignment-4-chauhan-p#readme"
+}

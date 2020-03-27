@@ -1,0 +1,20 @@
+/* This file contains all the styling for web page foooter. */
+.footer1{
+    float: left;
+    width: 50%; 
+    text-align: left;
+    
+}
+.footer2{
+    float: right;
+    width: 50%;
+    position: fixed;
+}
+/* The below is an example of styling for class footer2 which is followed by div that is being diving into 3 parts. */
+.footer2 div{
+    float: left;
+    width: 33.333%;
+}
+.footer3{
+    text-align: center;
+}

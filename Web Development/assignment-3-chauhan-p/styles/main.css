@@ -1,0 +1,282 @@
+/* This file contains all the styling for web page main body other than header, footer and form. */
+
+/* The below is an example for styling for h1 tag where we are provided the left margin, text allignment and font weight. */
+h1{
+    font-weight: normal;
+    text-align: left;
+    margin-left: 7.6em;
+}
+h2{
+    text-align: left;
+}
+/* The below is an example for styling for classname head2 tag where we are provided the left margin, font size and font weight. */
+.head2{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 900;
+}
+h3{
+    text-align: right;
+    margin-right: 8.8em;
+}
+h4{
+    color: grey;
+}
+h5{
+    color: black;
+    font-weight: bold;
+}
+/* The below is an example for styling for div tag whose position is fixed on the web page. */
+div.fixed{
+    text-align: right;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+}
+.div2{
+    width: 50%; 
+    float: left;
+    text-align: center;
+}
+.div2_1{
+    width: 50%; 
+    float: left;
+    text-align: center;   
+}
+svg{
+    box-shadow: 10px 30px 30px lightgray;
+    opacity: 0.5;
+    margin-left: 70px;
+    margin-bottom: 90px;
+    border-radius: 50%;
+}
+.aboutme{
+    text-shadow: 2px 2px #ff0000;
+    opacity: 0.3;   
+    font-weight: bold;
+}
+ul img:hover{
+    border: 3px solid #1cb692;
+}
+.div2_2{
+    margin-top: 350px;
+    padding-left: 35em;
+    padding-right: 5px;
+    margin-bottom: 50px;
+}
+.block1{
+    text-align: left;
+    margin-left: 250px;
+    width: 350px;
+    height: 400px;
+    padding: 30px;
+    box-shadow: 0 -3em 3em rgba(0,0,0,0.1), 
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+/* The below is an example for styling for class block2 where we are using various fields to get a 3D view of the box by using shadow property and also opcaity helps to make the image more transperant. */
+.block4{
+    color: white;
+    background-color: grey;
+    opacity: 0.5;
+    text-align: left;
+    margin-left: 100px;
+    margin-bottom: 50px;
+    width: 350px;
+    height: 400px;
+    padding: 30px;
+    box-shadow: 0 -3em 3em rgba(0,0,0,0.1), 
+                0 0  0 2px lightgray,
+                0.3em 0.3em 1em lightgray;
+}
+.block5{
+    color: black;
+    background-color: white;
+    text-align: left;
+    margin-left: 50px;
+    margin-bottom: 50px;
+    width: 350px;
+    height: 400px;
+    box-shadow: 0 -3em 3em rgba(0,0,0,0.1), 
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.head{
+    font-size: 35px;
+    font-weight: 900;
+}
+/* The below is an example for styling for blockquote followed by img tag. */
+blockquote img{
+    margin-left: 0px;
+    width: 100px;
+    height: 80px;
+}
+/* The below is an example for styling for blockquote followed by div followed by img tag. */
+blockquote div img{
+    width: 350px;
+    height: 200px;
+}
+.progress_border{
+    background-color: lightgray;
+}
+/* The below is an example for styling for class name progress where we are providing height, width and background color. */
+.progress{
+    height: 10px;
+    width: 75%;
+    background-color: grey;
+}
+.progress1{
+    height: 10px;
+    width: 85%;
+    background-color: grey;
+}
+.progress2{
+    height: 10px;
+    width: 70%;
+    background-color: grey;
+}
+/* The below is an example for styling for class block2 where we are using various fields to get a 3D view of the box by using shadow property. */
+.block2{
+    text-align: left;
+    margin-left: 50px;
+    width: 400px;
+    height: 200px;
+    padding: 30px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    box-shadow: 0 -3em 3em rgba(0,0,0,0.1), 
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.block3{
+    text-align: left;
+    margin-left: 250px;
+    width: 400px;
+    height: 200px;
+    padding: 30px;
+    margin-top: 100px;
+    margin-bottom: 150px;
+    box-shadow: 0 -3em 3em rgba(0,0,0,0.1), 
+                0 0  0 2px rgb(255,255,255),
+                0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+.div3{
+    width: 100%; 
+    float: left; 
+    text-align: center;
+} 
+.div3_1{
+    width: 25%; 
+    float: left;
+}
+.div4{
+    width: 100%; 
+    float: left;
+    text-align: center;
+}
+.div4_7{
+    width: 100%; 
+    float: left;
+}
+.div5{
+    width: 50%; 
+    float: left;
+}
+.div6{
+    float: left;
+    width: 33.33%;
+}
+.div7{
+    width: 33.33%; 
+    float: left;
+}
+/* The below is an example for styling for class div8 in which we are provided the background image from the local system. */
+.div8{
+    width: 100%; 
+    float: left;
+    text-align: center;
+    background-image: url("../images/bg.png");
+}
+/* The below is an example for styling for class button in which we are provided the background color, radius, text alignment, padding, font size, and text decoration wherever it is being used. */
+.button{
+    background-color: lightgray;
+    border-radius: 15px;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.button1{
+    background-color: white;
+    border-radius: 15px;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border:
+}
+/* The below is an example for styling for class button in which we are providing on hover functionality to it by which the button will get the borders. */
+.button:hover{
+    border: 3px solid #1cb692;
+}
+.button1:hover{
+    border: 3px solid #1cb692;
+}
+.input{
+    height:100px;
+    width:330px;
+}
+.buttonw{
+    background-color: white;
+    border: none;
+    color: gray;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.buttonw:hover{
+    border: 3px solid #1cb692;
+    border-radius: 15px;
+}
+.navlist {
+    position: relative;
+}
+.navlist img {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+}
+  
+.navlist img{
+    height: 44px;
+    display: block;
+} 
+.home {
+    left: 688px;
+    width: 46px;
+    border-radius: 50%;
+}
+.prev {
+    left: 774px;
+    width: 43px;
+    border-radius: 50%;
+}
+.round{
+    border-radius: 50%;
+    left: 725px;
+}
+

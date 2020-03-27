@@ -1,0 +1,44 @@
+.container {
+  width: 600px;
+  height: 6000px;
+  background-color: green;
+  margin-left: 30px;
+  scroll-behavior: auto; }
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  margin-bottom: 10px; }
+
+.relative::after {
+  content: "Relative"; }
+
+.absolute::after {
+  content: "Absolute"; }
+
+.fixed::after {
+  content: "Fixed"; }
+
+.sticky::after {
+  content: "Sticky"; }
+
+.relative {
+  position: relative;
+  top: 50px;
+  left: 10px; }
+
+.fixed {
+  position: fixed;
+  top: 100px;
+  left: 10px; }
+
+.absolute {
+  position: absolute;
+  top: 150px;
+  left: 10px; }
+
+.sticky {
+  position: sticky;
+  top: 200px;
+  left: 10px; }

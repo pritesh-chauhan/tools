@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Excel Sheet</title>
+        <link rel="stylesheet" href="./dist/body.css" />
+        <script src="js/button.js"></script>
+        <script src="js/export.js"></script>
+        <script src="js/import.js"></script>
+        
+    </head>
+    <body>
+        <table style="width:100%" class="my-table" id="my-table">
+            
+                <tr>
+                    <td></td>
+                    <td id="A" onclick="colHighlight(this.id)">A</td>
+                    <td id="B" onclick="colHighlight(this.id)">B</td> 
+                    <td id="C" onclick="colHighlight(this.id)">C</td>
+                </tr>
+                <tr>
+                    <td id="0" onclick="rowHighlight(parseInt(this.id,8)+1)">0</td>
+                    <td><input id="A0" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"></input></td>
+                    <td><input id="B0" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                    <td><input id="C0" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                </tr>
+                <tr>
+                    <td id="1" onclick="rowHighlight(parseInt(this.id,8)+1)">1</td>
+                    <td><input id="A1" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"  ></input></td>
+                    <td><input id="B1" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                    <td><input id="C1" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                </tr>
+                <tr>
+                    <td id="2" onclick="rowHighlight(parseInt(this.id,8)+1)">2</td>
+                    <td><input id="A2" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"  ></input></td>
+                    <td><input id="B2" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                    <td><input id="C2" type="text" value="" oninput="setter(this.id)" onkeypress="return onlyNumberKey(this.id, event)"/></td>
+                </tr> 
+        </table>
+        <p></p>
+        <button id="addcol" onclick="appendColumn()" name="Add Column">Add Column</button>
+        
+        <button id="delcol" onclick="deleteColumns()" name="Delete Column">Delete Column</button>
+        <p></p>
+        <button id="addrow" onclick="appendRow()" name="Add Row">Add Row</button>
+        <button id="delrow" onclick="deleteRows()" name="Delete Row">Delete Row</button>
+        <p></p>
+
+        <button onclick="exportTableToCSV('mycsv.csv')">Export</button>
+        <p></p>
+        <input type="file" id="fileUpload">
+        <p></p>
+        <button type="button" value="Import CSV" onclick="reloadMe();Upload()">Import CSV</button>
+        
+    </body>
+</html>

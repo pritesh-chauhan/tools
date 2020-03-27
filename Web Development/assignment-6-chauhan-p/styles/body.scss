@@ -1,0 +1,20 @@
+thead {
+    background: #DDD;
+    text-align: center;
+    font-weight: 900;
+}
+.my-table tr td:first-child{
+    text-align: center;
+    font-weight: 900;
+    border: 1px #DDD solid;
+    padding: 3px 7px;
+    background-color: lightgray;
+}
+td, th {
+    border: 1px #DDD solid;
+    padding: 3px 7px;
+}
+input{
+    resize: none; 
+    width: 100%;
+}

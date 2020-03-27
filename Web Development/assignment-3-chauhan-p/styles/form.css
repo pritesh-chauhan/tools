@@ -1,0 +1,48 @@
+/* This file contains all the styling for web page form. */
+.div1_form{
+    width: 50%; 
+    float: left;
+}
+/* The below is an example for styling for class div2_form in which we are creating the partition and giving the right margin. */
+.div2_form{
+    width: 50%; 
+    float: right;
+    margin-right: 30px;
+}
+/* The below is an example for styling for class padding in which we are adding the padding from left and right. */
+.padding{
+    padding-right: 200px;
+    padding-left: 200px;
+}
+/* The below is an example for styling for input tage which are of type text, email, and tel and select tag. */
+input[type=text], input[type=email], input[type=tel], select{
+    height: 50px;
+    width: 90%;
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+input[type=submit]{
+    text-align: center;
+    padding: 12px 20px;
+    margin: 8px 0;
+    margin-left: 43em;
+}
+/* The below is an example for styling for textarea in the form. */
+textarea{
+    height: 40%;
+    width: 70%;
+    display: inline-block;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin-left: 17em;
+}
+.div_form{
+    width: 100%; 
+    float: left;
+}

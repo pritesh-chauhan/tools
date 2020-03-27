@@ -1,0 +1,29 @@
+/* This file contains all the styling for web page header. */
+ol{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li {
+    float: right;
+    font-size: 20px;
+    background-color: white;
+}
+/* The below is an example for styling for a tag which changese the color on mouse hover. */
+a:hover{
+    background-color: burlywood;
+}
+/* The below is an example for styling for li followed by a tag. */
+li a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding-right: 2em;
+    margin-bottom: 15px;
+}
+/* The below is an example of styling for header tag for which we are providing its position as relative. */
+header{
+    position: relative;
+}
