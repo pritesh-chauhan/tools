@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>E_HealthCare</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            function myFunction() {
+                
+                if (document.getElementById("pass").value !== document.getElementById("cpass").value) {
+                    alert("Password doesn't match!");
+                    document.getElementById("pass").value = "";
+                    document.getElementById("cpass").value = "";
+                    return false;
+                }
+            }
+            
+        </script>
+        <style>
+            a{
+              background-color: grey;
+              color: white;
+              padding: 14px 25px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              border-radius: 4px;
+            }
+            .header, h1, h2, h3{
+                background-color: lightgray;
+                text-align: center;
+                font: bolder;
+            }
+            input[type=text], input[type=email], input[type=number], input[type=password], select {
+                width: 50%;
+                padding: 12px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+                margin-top: 6px;
+                margin-bottom: 16px;
+                resize: vertical;
+                border: 1px solid black;
+            }
+
+            input[type=submit] {
+                background-color: grey;
+                color: white;
+                padding: 14px 25px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            .container {
+                border-radius: 5px;
+                background-color: lightgray;
+                padding: 20px;
+                text-align: center;
+            }
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            *{
+                box-sizing: border-box; 
+                background-color: lightgray;
+            }
+            .blink-one {
+                color: red;
+                animation: blinker-one 1s linear infinite;
+            }
+            @keyframes blinker-one {  
+                0% { opacity: 0; }
+            }
+            .header form {
+                line-height: 28px;
+                text-align: justify;
+                display: inline;
+            }
+
+            .header h1 {
+                line-height: 28px;
+                display: inline-block;
+            }
+            textarea {
+                width: 70%;
+                height: 150px;
+                padding: 12px 20px;
+                box-sizing: border-box;
+                border: 2px solid #ccc;
+                border-radius: 4px;
+                background-color: #f8f8f8;
+                font-size: 16px;
+                resize: none;
+                margin-left: 250px;
+            }
+        </style>
+    </head>
+    <body >
+        <div class="header">
+            <h1 style="margin-left: 100px;">E_HealthCare System</h1>
