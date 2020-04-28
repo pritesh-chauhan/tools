@@ -1,0 +1,82 @@
+<h1>{{ title }}</h1>
+<hr>
+
+<app-addtodo></app-addtodo>
+<hr>
+<br>
+<br>
+
+<table>
+  <!-- Table headers -->
+  <tr>
+    <th>
+      Title
+    </th>
+    <th>
+      Description
+    </th>
+    <th>
+      ID
+    </th>
+    <th>
+      CreatedAt
+    </th>
+    <th>
+      UpdatedAt
+    </th>
+    <th>
+      DueDate
+    </th>
+    <th>
+      Check
+    </th>
+    <th>
+      Actions
+    </th>
+  </tr>
+  <!-- Printing all todo's -->
+  <tr *ngFor="let todo of listcomments" >
+    <td>
+      {{ todo.title }}
+    </td>
+    <td>
+      {{ todo.description }}
+    </td>
+    <td>
+      {{ todo.id }}
+    </td>
+    <td>
+      {{ todo.createdAt }}
+    </td>
+    <td>
+      {{ todo.updatedAt }}
+    </td>
+    <td>
+      {{ todo.dueDate }}
+    </td>
+    <td>
+      {{ todo.check ? '&#10003;' : '&#10005;' }}
+    </td>
+    <td>
+      &nbsp;
+      <!-- Update todo component -->
+      <app-updatetodo [Todo] = "todo" ></app-updatetodo> &nbsp;
+      <!-- Delete todo component -->
+      <app-deletetodo [Todo] = "todo" ></app-deletetodo> &nbsp;
+      <!-- View todo component -->
+      <app-viewtodo [Todo] = "todo" ></app-viewtodo> &nbsp;
+    </td>
+  </tr>
+</table>
+<!-- 
+<a>
+<div>
+  <u><h1 (click)="toggleChild()">Add Todo</h1></u>
+  <div>
+      <app-modal [showMePartially]="showVar"></app-modal>
+  </div>
+</div>
+</a> -->
+
+
+

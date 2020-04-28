@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+td{
+    background-color: lightyellow;
+    padding: 5px;
+    color: brown;
+}
+th{
+    background-color: lightsalmon;
+    padding: 5px;
+    color: black;
+    
+}
+button{
+    background-color: red;
+    // border-radius: 25%;
+    color: black;
+}
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+body{
+    text-align: center;
+    background-color: black;
+    color: red;
+}
+h1{
+    color: green($color: #000000);
+}

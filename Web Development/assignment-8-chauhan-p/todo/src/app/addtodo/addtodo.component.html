@@ -1,0 +1,8 @@
+<!-- <p>addtodo works!</p> -->
+<div>
+    Title: <input type="text" #newTodoTitle required/>&nbsp;&nbsp;
+    Description: <input type="text" #newTodoDescription required/>&nbsp;&nbsp;
+    Due Date: <input type="date" #newTodoDueDate required/>&nbsp;&nbsp;
+    <br><br>
+    <button (click)="addTodo(newTodoTitle.value, newTodoDescription.value, newTodoDueDate.value); newTodoTitle.value=''; newTodoDescription.value=''; newTodoDueDate.value='';">Add Todo</button>
+</div>
